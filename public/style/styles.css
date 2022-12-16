@@ -1,0 +1,53 @@
+body {
+    overflow-x: hidden;
+}
+
+.form-blured {
+    /* background-image: url("https://cdn.pixabay.com/photo/2017/08/18/13/04/glass-2654887_960_720.jpg");
+
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+
+    background-size: cover; */
+}
+
+.image-info {
+    height: 650px;
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/18/13/04/glass-2654887_960_720.jpg");
+    background-size: cover;
+}
+
+.padrao {
+    
+    height: 650px;
+    
+}
+/* //https://cdn.pixabay.com/photo/2017/08/18/13/04/glass-2654887_960_720.jpg */
+
+
+.input {
+    border: none;
+    background-color: #F8F9FA;
+    margin-right: 0px;
+    margin: 50px 0 0 30px;
+
+    
+    
+}
+
+hr {
+    width: 372px;
+    margin-left: 30px;
+    
+}
+.submit {
+    background-color: aqua;
+    height: 94px;
+    width: 97px;
+    margin-left: 450px;
+    position: fixed;
+    
+    margin-bottom: 0;
+
+}
+
