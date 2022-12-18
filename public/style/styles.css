@@ -1,53 +1,71 @@
 body {
-    overflow-x: hidden;
+  overflow-x: hidden;
+  background-image: url("https://images.unsplash.com/photo-1503342669531-2557c49cde04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-size: cover;
 }
 
 .form-blured {
-    /* background-image: url("https://cdn.pixabay.com/photo/2017/08/18/13/04/glass-2654887_960_720.jpg");
-
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
-
-    background-size: cover; */
-}
-
-.image-info {
-    height: 650px;
-    background-image: url("https://cdn.pixabay.com/photo/2017/08/18/13/04/glass-2654887_960_720.jpg");
-    background-size: cover;
+  /* From https://css.glass */
+  /* From https://css.glass */
+  background: rgba(170, 169, 172, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  height: 700px;
 }
 
 .padrao {
-    
-    height: 650px;
-    
+  height: 650px;
 }
 /* //https://cdn.pixabay.com/photo/2017/08/18/13/04/glass-2654887_960_720.jpg */
 
-
 .input {
-    border: none;
-    background-color: #F8F9FA;
-    margin-right: 0px;
-    margin: 50px 0 0 30px;
+  margin-right: 0px;
+  margin: 50px 0 0 30px;
+  background-color: transparent;
+  border: none;
 
-    
-    
+  /* From https://css.glass */
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
 }
 
 hr {
-    width: 372px;
-    margin-left: 30px;
-    
+  width: 372px;
+  margin-left: 30px;
+  color: white;
 }
 .submit {
-    background-color: aqua;
-    height: 94px;
-    width: 97px;
-    margin-left: 450px;
-    position: fixed;
-    
-    margin-bottom: 0;
+  background-color: aqua;
+  height: 94px;
+  width: 97px;
+  margin-left: 450px;
+  position: fixed;
 
+  margin-bottom: 0;
 }
 
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1.2; /* Firefox */
+}
+
+
+.result {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 200px;
+}
+
+.result > h1 {
+    font-size: 12.5rem;
+}
+
+
+.sugestions > p{
+    margin-left: 30px;
+}
