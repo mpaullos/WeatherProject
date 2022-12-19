@@ -38,8 +38,12 @@ app.post("/", (req, res) => {
       var day = new Date();
       var hours = day.getHours();
       var minutes = day.getMinutes();
+      var month = day.getMonth();
+      var dayNames =(day.toLocaleString('pt-br', {weekday:'long'}).split("-")[0]).charAt(0).toUpperCase() + (day.toLocaleString('pt-br', {weekday:'long'}).split("-")[0]).slice(1)
+      var dayNumber = day.getDate()
+      const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
       function fixHourAndMinutes(hours) {
-        if (hours < 10){
+        if (hours < 10) {
           hours = "0" + hours;
         }
         return hours;
@@ -47,7 +51,7 @@ app.post("/", (req, res) => {
 
       //const text1 = `<h1>A temperatura em ${query} é ${temp} ${weatherDescription}</h1>`;
       // const text2 = "<img src=" + iconUrl + ">";
-      res.render("index", { h1: temp, h2: query, h3: `${fixHourAndMinutes(hours)}:${fixHourAndMinutes(minutes)}` });
+      res.render("index", { h1: `${temp}°`, h2: query, span: `${fixHourAndMinutes(hours)}:${fixHourAndMinutes(minutes)}- ${dayNames}, ${dayNumber} ${monthNames[month].slice(0,3)} `, h3:iconUrl });
     });
   });
 });
