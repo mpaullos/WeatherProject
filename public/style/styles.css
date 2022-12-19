@@ -12,7 +12,7 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  height: 700px;
+  height: 100vh;
 }
 
 .padrao {
@@ -40,10 +40,10 @@ hr {
   color: white;
 }
 .submit {
-  background-color: #B2D4E6;
+  background-color: #b2d4e6;
   height: 94px;
   width: 97px;
-  margin-left: 450px;
+  margin-left: calc(100% - 120px);
   position: fixed;
 
   margin-bottom: 0;
@@ -55,20 +55,18 @@ hr {
   opacity: 1.2; /* Firefox */
 }
 
-
 .result {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30vh;
 }
 
 .result > h1 {
-    font-size: 12.5rem;
+  font-size: 12.5rem;
 }
 
-
-.sugestions > p{
-    margin-left: 30px;
+.sugestions > p {
+  margin-left: 30px;
 }
 
 h2 {
