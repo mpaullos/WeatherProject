@@ -100,3 +100,50 @@ https://images.unsplash.com/photo-1638270598448-145f4fc9101d?ixlib=rb-4.0.3&ixid
  .colorgray {
   color: gray;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(170, 169, 172, 0.18);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.gatinho {
+  background-color: white;
+  background-image: none;
+  
+}
+
+button a {
+  color: white;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: yellow;
+}
+
+a:active {
+  text-decoration: underline;
+}
