@@ -1,6 +1,6 @@
 body {
   overflow-x: hidden;
-  background-image: url("https://images.unsplash.com/photo-1638270598448-145f4fc9101d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-image: url("https://images.unsplash.com/photo-1593017601537-902eeba5b907?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
   background-size: cover;
   color: white;
 }
@@ -69,6 +69,11 @@ hr {
   margin-left: 30px;
 }
 
+
+.weather-descriptions > p {
+  margin-left: 30px;
+  margin-top: 20px;
+}
 h2 {
   font-size: 50px;
   margin: auto;
@@ -90,3 +95,7 @@ https://images.unsplash.com/photo-1638270598448-145f4fc9101d?ixlib=rb-4.0.3&ixid
 
 
  */
+
+ .colorgray {
+  color: gray;
+}
