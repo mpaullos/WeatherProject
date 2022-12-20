@@ -18,17 +18,31 @@
             <h2>
               <%- h2 %>
               <br />
-              <span> <%- span  %> </span>
+              <span> <%- span %> </span>
             </h2>
-            <h3><img src="<%- h3 %>" alt="" srcset=""></h3>
+            <h3><img src="<%- h3 %>" alt="" srcset="" /></h3>
           </div>
         </div>
         <div class="col-5 form-blured">
           <form action="/" method="post">
-            <button class="submit" type="submit"><img src="/images/search-icon.png" width="28" height="auto" alt="" srcset=""></button>
-            <input class="input" type="text" id="city" name="cityName" placeholder="Another location" />
+            <button class="submit" type="submit"><img src="/images/search-icon.png" width="28" height="auto" alt="" srcset="" /></button>
+            <input class="input" type="text" id="city" name="cityName" placeholder="Outra Localização" />
             <hr />
           </form>
+          <div class="sugestions">
+            <p>Aracaju</p>
+            <p>Aracaju</p>
+            <p>Aracaju</p>
+            <p>Aracaju</p>
+            <hr />
+          </div>
+          <div class="weather-descriptions">
+            <p>Descrição: <%- details.descrição %> </p>
+            <p>Umidade: <%- details.umidade  %> </p>
+            <p>Nuvens: <%- details.nuvens  %> </p>
+            <p>Sensação Térmica: <%- details.sensação  %> </p>
+          </div>
+          <hr>
         </div>
       </div>
     </div>
