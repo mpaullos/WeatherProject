@@ -25,6 +25,7 @@ body {
   margin: 50px 0 0 30px;
   background-color: transparent;
   border: none;
+  color: yellow;
 
   /* From https://css.glass */
 }
