@@ -71,7 +71,7 @@ app.post("/", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.send("OH OH");
+  res.sendFile(__dirname + "/error404.html");
 });
 
 app.listen(3000, () => {
