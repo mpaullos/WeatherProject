@@ -26,35 +26,60 @@ app.post("/", (req, res) => {
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + unity + "&lang=pt_br";
 
   https.get(url, (response) => {
+    console.log(res.statusCode);
     console.log(response.statusCode);
+    if (response.statusCode != 200) {
+      res.sendFile(__dirname + "/error404.html");
+    } else {
+      response.on("data", (data) => {
+        /* api functions */
+        const weatherData = JSON.parse(data);
+        const temp = Math.ceil(weatherData.main.temp);
+        const weatherDescription = weatherData.weather[0].description;
+        const icon = weatherData.weather[0].icon;
+        const iconUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+        const humidity = weatherData.main.humidity;
+        const clouds = weatherData.clouds.all;
+        const feels = weatherData.main.feels_like;
 
-    response.on("data", (data) => {
-      const weatherData = JSON.parse(data);
-      const temp = Math.ceil(weatherData.main.temp);
-      const weatherDescription = weatherData.weather[0].description;
-      const icon = weatherData.weather[0].icon;
-      const iconUrl = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+        const details = {
+          descrição: weatherDescription,
+          umidade: humidity,
+          nuvens: clouds,
+          sensação: feels,
+        };
 
-      var day = new Date();
-      var hours = day.getHours();
-      var minutes = day.getMinutes();
-      var month = day.getMonth();
-      var dayNames =(day.toLocaleString('pt-br', {weekday:'long'}).split("-")[0]).charAt(0).toUpperCase() + (day.toLocaleString('pt-br', {weekday:'long'}).split("-")[0]).slice(1)
-      var dayNumber = day.getDate()
-      const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-      function fixHourAndMinutes(hours) {
-        if (hours < 10) {
-          hours = "0" + hours;
+        /* Data functions */
+        var day = new Date();
+        var hours = day.getHours();
+        var minutes = day.getMinutes();
+        var month = day.getMonth();
+        var dayNames = day.toLocaleString("pt-br", { weekday: "long" }).split("-")[0].charAt(0).toUpperCase() + day.toLocaleString("pt-br", { weekday: "long" }).split("-")[0].slice(1);
+        var dayNumber = day.getDate();
+        const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        function fixHourAndMinutes(hours) {
+          if (hours < 10) {
+            hours = "0" + hours;
+          }
+          return hours;
         }
-        return hours;
-      }
 
-      //const text1 = `<h1>A temperatura em ${query} é ${temp} ${weatherDescription}</h1>`;
-      // const text2 = "<img src=" + iconUrl + ">";
-      res.render("index", { h1: `${temp}°`, h2: query, span: `${fixHourAndMinutes(hours)}:${fixHourAndMinutes(minutes)}- ${dayNames}, ${dayNumber} ${monthNames[month].slice(0,3)} `, h3:iconUrl });
-    });
+        //const text1 = `<h1>A temperatura em ${query} é ${temp} ${weatherDescription}</h1>`;
+        // const text2 = "<img src=" + iconUrl + ">";
+        res.render("index", { h1: `${temp}°`, h2: query, span: `${fixHourAndMinutes(hours)}:${fixHourAndMinutes(minutes)}- ${dayNames}, ${dayNumber} ${monthNames[month].slice(0, 3)} `, h3: iconUrl, details: details });
+      });
+    }
   });
 });
+
+app.post("/error404.html", (req, res) => {
+  res.redirect("/");
+});
+
+app.get("*", (req, res) => {
+  res.send("OH OH");
+});
+
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000.");
