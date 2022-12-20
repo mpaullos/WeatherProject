@@ -64,22 +64,15 @@ app.post("/", (req, res) => {
           return hours;
         }
 
-        //const text1 = `<h1>A temperatura em ${query} é ${temp} ${weatherDescription}</h1>`;
-        // const text2 = "<img src=" + iconUrl + ">";
         res.render("index", { h1: `${temp}°`, h2: query, span: `${fixHourAndMinutes(hours)}:${fixHourAndMinutes(minutes)}- ${dayNames}, ${dayNumber} ${monthNames[month].slice(0, 3)} `, h3: iconUrl, details: details });
       });
     }
   });
 });
 
-app.post("/error404.html", (req, res) => {
-  res.redirect("/");
-});
-
 app.get("*", (req, res) => {
   res.send("OH OH");
 });
-
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000.");
