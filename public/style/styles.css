@@ -70,7 +70,6 @@ hr {
   margin-left: 30px;
 }
 
-
 .weather-descriptions > p {
   margin-left: 30px;
   margin-top: 20px;
@@ -97,10 +96,9 @@ https://images.unsplash.com/photo-1638270598448-145f4fc9101d?ixlib=rb-4.0.3&ixid
 
  */
 
- .colorgray {
+.colorgray {
   color: gray;
 }
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -125,7 +123,6 @@ https://images.unsplash.com/photo-1638270598448-145f4fc9101d?ixlib=rb-4.0.3&ixid
 .gatinho {
   background-color: white;
   background-image: none;
-  
 }
 
 button a {
@@ -146,4 +143,8 @@ a:hover {
 
 a:active {
   text-decoration: underline;
+}
+
+.cities:hover {
+  color: yellow;
 }
