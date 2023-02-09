@@ -148,3 +148,26 @@ a:active {
 .cities:hover {
   color: yellow;
 }
+
+/* Mobile settings */
+
+@media (max-width: 528px) {
+ .result > h1 {
+  font-size: 4.5rem;
+  position: relative;
+  left: 228px;
+  bottom: 200px;
+ }
+
+ .result {
+  display: flexbox;
+  justify-content: space-between;
+  margin-top: 10vh;
+ }
+ h2 {
+  font-size: 2rem;
+  position: absolute;
+ }
+
+}
+
