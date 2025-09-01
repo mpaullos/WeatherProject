@@ -41,8 +41,5 @@ Weather Project é um projeto que tem o intuito de mostrar a previsão de tempo 
 
 ## :zap: [Acesse](https://glorious-elk-kit.cyclic.app/)
 
-### :exclamation: Atenção
- Caso você execute através do servidor, haverá uma diferença de 3 horas considerando que você esteja acessando do Brasil.
- 
 
  
