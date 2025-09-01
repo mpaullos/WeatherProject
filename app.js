@@ -11,12 +11,12 @@ const path = require("path");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.post("/", (req, res) => {
@@ -29,7 +29,7 @@ app.post("/", (req, res) => {
     console.log(res.statusCode);
     console.log(response.statusCode);
     if (response.statusCode != 200) {
-      res.sendFile(__dirname + "/error404.html");
+      res.sendFile(path.join(__dirname, "error404.html"));
     } else {
       response.on("data", (data) => {
         /* api functions */
@@ -71,9 +71,14 @@ app.post("/", (req, res) => {
 });
 
 app.get("*", (req, res) => {
-  res.sendFile(__dirname + "/error404.html");
+  res.sendFile(path.join(__dirname, "error404.html"));
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000.");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
+
+// Exportar o app para a Vercel
+module.exports = app;
