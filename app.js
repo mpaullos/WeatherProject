@@ -49,13 +49,36 @@ app.post("/", (req, res) => {
           sensação: feels,
         };
 
-        /* Data functions */
-        var day = new Date();
-        var hours = day.getHours();
-        var minutes = day.getMinutes();
-        var month = day.getMonth();
-        var dayNames = day.toLocaleString("pt-br", { weekday: "long" }).split("-")[0].charAt(0).toUpperCase() + day.toLocaleString("pt-br", { weekday: "long" }).split("-")[0].slice(1);
-        var dayNumber = day.getDate();
+        /* Data functions - Fuso horário brasileiro */
+        const now = new Date();
+
+        // Opções para formatar data/hora no fuso brasileiro
+        const brasiliaOptions = { timeZone: "America/Sao_Paulo" };
+
+        // Obter componentes da data/hora no fuso brasileiro
+        const brasiliaTime = new Intl.DateTimeFormat("pt-BR", {
+          ...brasiliaOptions,
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        }).formatToParts(now);
+
+        const brasiliaDate = new Intl.DateTimeFormat("pt-BR", {
+          ...brasiliaOptions,
+          weekday: "long",
+          day: "numeric",
+          month: "numeric",
+        }).formatToParts(now);
+
+        // Extrair valores
+        const hours = parseInt(brasiliaTime.find((part) => part.type === "hour").value);
+        const minutes = parseInt(brasiliaTime.find((part) => part.type === "minute").value);
+        const dayNames = brasiliaDate.find((part) => part.type === "weekday").value;
+        const dayNumber = parseInt(brasiliaDate.find((part) => part.type === "day").value);
+        const month = parseInt(brasiliaDate.find((part) => part.type === "month").value) - 1; // JS months are 0-indexed
+
+        // Capitalizar primeira letra do dia da semana
+        const dayNameCapitalized = dayNames.charAt(0).toUpperCase() + dayNames.slice(1);
         const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
         function fixHourAndMinutes(hours) {
           if (hours < 10) {
@@ -64,7 +87,7 @@ app.post("/", (req, res) => {
           return hours;
         }
 
-        res.render("index", { h1: `${temp}°`, h2: query, span: `${fixHourAndMinutes(hours)}:${fixHourAndMinutes(minutes)}- ${dayNames}, ${dayNumber} ${monthNames[month].slice(0, 3)} `, h3: iconUrl, details: details });
+        res.render("index", { h1: `${temp}°`, h2: query, span: `${fixHourAndMinutes(hours)}:${fixHourAndMinutes(minutes)}- ${dayNameCapitalized}, ${dayNumber} ${monthNames[month].slice(0, 3)} `, h3: iconUrl, details: details });
       });
     }
   });
