@@ -39,7 +39,7 @@ Weather Project é um projeto que tem o intuito de mostrar a previsão de tempo 
 - [NodeJs](https://nodejs.org/en/)
 - [Ejs](https://ejs.co/#docs)
 
-## :zap: [Acesse](https://glorious-elk-kit.cyclic.app/)
+## :zap: [Acesse](https://weather-project-snowy-nine.vercel.app/)
 
 
  
